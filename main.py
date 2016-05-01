@@ -1,6 +1,6 @@
 import random
 import time
-import sys, os
+import os
 
 
 class Board(object):
@@ -12,16 +12,17 @@ class Board(object):
 
     def draw(self):
         st = ""
-        os.system("clear")
+        os.system("clear")     #This can be a problem in windows
         for i in range(self.TABLE_HEIGHT-1):
             for j in range(self.TABLE_WIDTH-1):
                 if self.BOARD[i][j] == 1:
-                    st += " O "
+                    st += " O "  #Represent 1 (Live cells) as O (Big o)
                 else:
-                    st += " . "
+                    st += " . "  #Represent 0 (Dead cells) as .
             st += "\n"
         print(st)
-        time.sleep(1)
+        time.sleep(1)            #Wait between generation so the user can see
+                                 #what is going on
 
 
     def populate(self):
